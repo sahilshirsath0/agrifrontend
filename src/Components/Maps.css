@@ -1,0 +1,123 @@
+/* General Container Adjustments */
+.container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* Map Styling */
+.map-container {
+  height: 450px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Shop List Adjustments for Mobile */
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Mapcard{
+  background-color: rgb(221, 250, 255);
+}
+.col-md-12 {
+  width: 100%;
+}
+
+/* Shop Card Styling */
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Shop Image Adjustments */
+.iamimage {
+  width: 70px;
+  height: 70px;
+}
+
+/* Modal Adjustments */
+.custom-modal .modal-dialog {
+  max-width: 90%; /* Make modal width responsive */
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Product Card */
+.product-card {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .map-container {
+    height: 150px; /* Adjust map height for smaller screens */
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image {
+    max-width:80vh;
+    max-height: 90px;
+    margin-bottom: 10px;
+    
+  }
+
+
+  .text{
+
+    text-wrap: wrap;
+    min-width: 100px;
+    align-items: left;
+    justify-content: left;
+    justify-items: left;
+  }
+  .f{
+    display: flex;
+    font-size: 12px;
+  
+
+justify-content: left;
+justify-items: left;
+align-items: left;
+  }
+  .a{
+    align-items: left;
+  }
+  }
+
+
+@media (max-width: 480px) {
+  .map-container {
+    height: 300px;
+  }
+
+  .product-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

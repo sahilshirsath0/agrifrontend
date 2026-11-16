@@ -1,0 +1,136 @@
+/* 🌿 Navbar Background (Plantix-inspired gradient) */
+.custom-navbar {
+  background: linear-gradient(135deg, #4CAF50, #3BB78F);
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 3px solid #2E8B57; /* Slight darker green touch */
+}
+.navOpenCamera{
+  width: 150px;
+  height: 86px;
+  padding: 0px;
+  margin-left: 50px;
+  margin-top: 12px;
+
+}
+.font_nav{
+  font-size: 15px;
+}
+/* 🏷️ Brand Logo */
+.brand-logo {
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 1.7rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.brand-logo:hover {
+  transform: scale(1.1);
+}
+
+/* 🎯 Align Icons & Categories to Right */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 🛍️ Navbar Icons (Categories, Cart, History) */
+.nav-icon {
+  color: #0c0c0c !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-icon:hover {
+  color: rgb(243, 233, 233) !important;
+  transform: scale(1.05);
+}
+
+/* 🔽 Dropdown Custom Styling */
+.custom-dropdown .dropdown-toggle {
+  color: #161511 !important;
+  font-weight: bold;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: #21dce6;
+  border: none;
+}
+
+.custom-dropdown .dropdown-item {
+  color: white !important;
+  transition: background 0.3s ease-in-out;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #388E3C !important;
+}
+
+/* 🔘 Login Button */
+.nav-button {
+  background: linear-gradient(135deg, #3BB78F, #0BAB64);
+  border: none;
+  font-weight: bold;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  margin-top: 0px;
+}
+
+.nav-button:hover {
+  background: linear-gradient(135deg, #ab680b, #800000);
+  transform: scale(1.05);
+}
+
+/* 🏷️ Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 1.7rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.brand-logo:hover {
+  transform: scale(1.1);
+}
+
+/* 🖼️ Navbar Logo */
+.nav-logo {
+  width: 50px;  /* Adjust size as needed */
+  height: auto;
+  border-radius: 10px;  /* Rounded corners */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  transition: margin-left 0.4s ease-in-out;
+  z-index: 900;
+}
+
+/* Adjust Navbar when Sidebar is Open */
+.navbar.shifted {
+  margin-left: 250px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar.shifted {
+    margin-left: 200px;
+  }
+}

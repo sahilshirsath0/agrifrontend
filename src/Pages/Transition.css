@@ -1,0 +1,57 @@
+/* Fullscreen Background */
+.payment-success-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue Gradient */
+}
+
+/* Success Box */
+.success-container {
+    text-align: center;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Success Image */
+.success-image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading Bar Animation */
+.loading-bar {
+    width: 100px;
+    height: 8px;
+    background: #f9a825; /* Gold */
+    border-radius: 10px;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-bar::after {
+    content: "";
+    width: 30px;
+    height: 8px;
+    background: #ffeb3b;
+    position: absolute;
+    left: 0;
+    animation: loadingAnimation 1.5s linear infinite;
+}
+
+@keyframes loadingAnimation {
+    0% { left: 0; }
+    100% { left: 100%; }
+}

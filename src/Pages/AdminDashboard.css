@@ -1,0 +1,148 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Container */
+.container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.table {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Alternating row colors */
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Search Bar */
+.input-group {
+  max-width: 400px;
+}
+
+.input-group .form-control {
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+.adminw{
+  width: 40px;
+}
+.adminn{
+ 
+  width: auto;
+}
+.adminp{
+  width: auto;
+}
+/* Buttons */
+.btn-sm {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: black;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Apply Changes Button */
+.btn-apply {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Image */
+img {
+  border-radius: 6px;
+  transition: transform 0.2s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Add Product Modal */
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background: #007bff;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .btn-sm {
+    padding: 4px 8px;
+  }
+}
+
+/* Spinner (Loader) */
+.spinner-border {
+  color: #007bff;
+}
+.admin_add_width{
+  width: 100%;
+}

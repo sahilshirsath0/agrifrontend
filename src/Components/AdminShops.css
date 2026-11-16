@@ -1,0 +1,214 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 100%;
+
+}
+
+
+/* Table Styling */
+.table {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 12px;
+
+}
+
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+/* Alternating row colors */
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  
+}
+
+.table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table {
+      font-size: 14px;
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+  .table th, .table td {
+      padding: 8px;
+  }
+}
+
+/* Search Bar */
+.input-group {
+  max-width: 400px;
+  margin-bottom: 15px;
+}
+
+.input-group .form-control {
+  border-radius: 20px;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.btn-sm {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: black;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Apply Changes Button */
+.btn-apply {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  display: block;
+  margin: 10px auto;
+}
+
+/* Image Styling */
+img {
+  border-radius: 6px;
+  transition: transform 0.2s ease-in-out;
+  max-width: 80px;
+  height: auto;
+}
+
+img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Add Shop Button */
+.add-shop-btn {
+  margin-bottom: 15px;
+}
+
+/* No Shops Available Message */
+.no-shops {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  padding: 20px;
+}
+
+/* Spinner (Loader) */
+.spinner-border {
+  color: #007bff;
+}
+
+/* Modal Styling */
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+/* Page Header */
+.page-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Table Action Icons */
+.table-action-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Small Screens: Adjust Buttons */
+@media (max-width: 576px) {
+  .btn-sm {
+      font-size: 12px;
+      padding: 4px 6px;
+  }
+  img {
+      max-width: 60px;
+  }
+}
+.admin_add_shop{
+  width: 100%;
+}

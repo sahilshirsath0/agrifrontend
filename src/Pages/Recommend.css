@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Container Styling */
+.container {
+    max-width: 1800px;
+    margin: auto;
+    padding: 20px;
+  
+}
+
+/* Card Styling */
+.card {
+    border: 2px solid #2E8B57;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: linear-gradient(to bottom, #61bc84, #2E8B57);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: white;
+    
+}
+
+.card h2 {
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-group {
+    background-color: #c6ffe6;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.form-label {
+    font-weight: bold;
+    color: #345e37;
+ 
+}
+
+.form-control,
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #2E8B57;
+    transition: all 0.3s ease-in-out;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #e0e0e0;
+    color: #1E1E1E;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100vh; 
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2E8B57;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    background-color: #c6ffe6;
+}
+
+/* Button Styling */
+.btn-success  {
+    background: linear-gradient(to right, #2E8B57, #61bc84);
+    border: none;
+    font-size: 1.2rem;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success:hover {
+    background: linear-gradient(to right, #345e37, #2E8B57);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Upload Styling */
+input[type="file"] {
+    border: 1px solid #2E8B57;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    margin-top: 40px;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme Section */
+.dark-section {
+    background: linear-gradient(to bottom, #1E1E1E, #2d2d2d);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .btn-success {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .card {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .form-control,
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #2E8B57;
+    transition: all 0.3s ease-in-out;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #e0e0e0;
+    color: #1E1E1E;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    width: 100%;
+}
+  
+}
+@media(max-width:480px){
+    .alone{
+        color: white;
+        background: linear-gradient(to right, #2E8B57, #61bc84);
+        width: 250px;
+        margin-bottom: 10px;
+    }
+}
+.op{
+    opacity: 80%;
+}
+.outline-success{
+    color: white;
+}
+.alone{
+    color: white;
+    background: linear-gradient(to right, #2E8B57, #61bc84);
+    width: 250px;
+    margin-bottom: 10px;
+}
+.inside_recommend{
+    max-width: 900px;
+}
