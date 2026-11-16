@@ -38,29 +38,33 @@ const Recommendation = () => {
     potassium: "",
   });
   const [result, setResult] = useState(null);
-
+const [loading, setLoading] = useState(false);
+  
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 const API_BASE_URL = "https://fertilizer-module.onrender.com";
 
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post(`${API_BASE_URL}/api/fertilizer/predict`, {
-        "Soil Type": formData.soilType?.value || "Sandy",
-        "Crop Type": formData.cropType?.value || "Rice",
-        Temperature: formData.temperature || 25,
-        Humidity: formData.humidity || 50,
-        Moisture: formData.moisture || 30,
-        Nitrogen: formData.nitrogen || 10,
-        Phosphorus: formData.phosphorus || 10,
-        Potassium: formData.potassium || 10,
-      });
-      setResult(response.data.fertilizer);
-    } catch (error) {
-      console.error("Error fetching fertilizer prediction", error);
-    }
-  };
+ const handleSubmit = async () => {
+  setLoading(true);
+  try {
+    const response = await axios.post(`${API_BASE_URL}/api/fertilizer/predict`, {
+      "Soil Type": formData.soilType?.value || "Sandy",
+      "Crop Type": formData.cropType?.value || "Rice",
+      Temperature: formData.temperature || 25,
+      Humidity: formData.humidity || 50,
+      Moisture: formData.moisture || 30,
+      Nitrogen: formData.nitrogen || 10,
+      Phosphorus: formData.phosphorus || 10,
+      Potassium: formData.potassium || 10,
+    });
+    setResult(response.data.fertilizer);
+  } catch (error) {
+    console.error("Error fetching fertilizer prediction", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
@@ -118,9 +122,13 @@ const API_BASE_URL = "https://fertilizer-module.onrender.com";
             onChange={(e) => handleChange("potassium", e.target.value)}
           />
 
-          <Button onClick={handleSubmit} className="w-full text-lg">
-            Predict Fertilizer
-          </Button>
+          <Button
+  onClick={handleSubmit}
+  className="w-full text-lg"
+  disabled={loading}
+>
+  {loading ? "Loading..." : "Predict Fertilizer"}
+</Button>
         </CardContent>
       </Card>
 

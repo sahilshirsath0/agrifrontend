@@ -9,35 +9,42 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 const API_BASE_URL = "https://main-backend-9afm.onrender.com";
-  const handleSignup = async (e) => {
-    e.preventDefault();
+  
+const handleSignup = async (e) => {
+  e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match!");
-      return;
+  if (password !== confirmPassword) {
+    setMessage("Passwords do not match!");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/users/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setMessage("Signup successful! Redirecting to login...");
+      setTimeout(() => navigate("/login"), 2000);
+    } else {
+      setMessage(`Error: ${data.message}`);
     }
+  } catch (err) {
+    setMessage(`Signup failed: ${err.message || "An error occurred"}`);
+  } finally {
+    setLoading(false);
+  }
+};
 
-    try {
-      const response = await fetch(`${API_BASE_URL}/users/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage("Signup successful! Redirecting to login...");
-        setTimeout(() => navigate("/login"), 2000);
-      } else {
-        setMessage(`Error: ${data.message}`);
-      }
-    } catch (err) {
-      setMessage(`Signup failed: ${err.message || "An error occurred"}`);
-    }
-  };
   const { t } = useTranslation();
   return (
     <div className="signup-page">
@@ -94,9 +101,14 @@ const API_BASE_URL = "https://main-backend-9afm.onrender.com";
             />
           </Form.Group>
 
-          <Button variant="success" type="submit" className="signup-btn">
-          {t("sign_up")}
-          </Button>
+          <Button
+  variant="success"
+  type="submit"
+  className="signup-btn"
+  disabled={loading}
+>
+  {loading ? "Loading..." : t("sign_up")}
+</Button>
         </Form>
 
         {message && <p className="message">{message}</p>}

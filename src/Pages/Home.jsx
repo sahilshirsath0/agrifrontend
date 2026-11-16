@@ -16,13 +16,15 @@ const Home = ({ handleProductAction }) => {
   const API_BASE_URL = "https://main-backend-9afm.onrender.com";
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/get_all_products`)
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
+  fetch(`${API_BASE_URL}/api/get_all_products`)
+    .then((response) => response.json())
+    .then((data) => setProducts(data))
+    .catch((error) => console.error("Error fetching products:", error))
+    .finally(() => setLoading(false));
+}, []);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -99,21 +101,27 @@ const Home = ({ handleProductAction }) => {
       </div>
       {/* Product Cards Section */}
 
-      <div className="flex flex-wrap justify-center gap product-container">
-        {currentProducts.map((product) => (
-          <div
-            key={product._id}
-            className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
-          >
-            <ProductCard
-              title={product.filename}
-              handleProductAction={handleProductAction}
-              image={product.image}
-              price={product.price}
-            />
-          </div>
-        ))}
+      {/* Product Cards Section */}
+
+{loading ? (
+  <p className="text-center mt-4">Loading...</p>
+) : (
+  <div className="flex flex-wrap justify-center gap product-container">
+    {currentProducts.map((product) => (
+      <div
+        key={product._id}
+        className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
+      >
+        <ProductCard
+          title={product.filename}
+          handleProductAction={handleProductAction}
+          image={product.image}
+          price={product.price}
+        />
       </div>
+    ))}
+  </div>
+)}
 
       <VoiceButton></VoiceButton>
 

@@ -27,6 +27,7 @@ const PESTICIDE_API_URL = "https://pesticide-module.onrender.com";
   const navigate = useNavigate();
   const token = localStorage.getItem("token"); 
   const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [pesticideResult, setPesticideResult] = useState(null);
   const [image, setImage] = useState(null);
   const [prices, setPrices] = useState({});
@@ -71,16 +72,20 @@ const PESTICIDE_API_URL = "https://pesticide-module.onrender.com";
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ 
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const { "Soil Type": soilType, "Crop Type": cropType } = formData;
+  const { "Soil Type": soilType, "Crop Type": cropType } = formData;
 
-    if (!soilType || !cropType) {
-      alert("Soil Type and Crop Type are required.");
-      return;
-    }
+  if (!soilType || !cropType) {
+    alert("Soil Type and Crop Type are required.");
+    return;
+  }
 
+  setLoading(true);
+
+  try {
     try {
       const { data: fertilizerData } = await axios.post(
         `${FERTILIZER_API_URL}/api/fertilizer/predict_fertilizer`,
@@ -90,7 +95,6 @@ const PESTICIDE_API_URL = "https://pesticide-module.onrender.com";
       setResult(fertilizerData);
       localStorage.setItem("recommendedFertilizer", JSON.stringify(fertilizerData));
 
-      // Call fetchPrice (getPriceAndUpdateState) for fertilizer product
       if (fertilizerData.fertilizer) {
         getPriceAndUpdateState(fertilizerData.fertilizer);
       }
@@ -102,7 +106,11 @@ const PESTICIDE_API_URL = "https://pesticide-module.onrender.com";
     if (image) {
       await processPesticideRecommendation(image);
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const processPesticideRecommendation = async (image) => {
     const imageFormData = new FormData();
@@ -333,9 +341,15 @@ const PESTICIDE_API_URL = "https://pesticide-module.onrender.com";
 </div>
 
 
-          <Button variant="success" type="submit" className="mt-3 w-100" id="recommend-button"> 
-          {t("get_recommendation")}
-          </Button>
+          <Button
+  variant="success"
+  type="submit"
+  className="mt-3 w-100"
+  id="recommend-button"
+  disabled={loading}
+>
+  {loading ? "Loading..." : t("get_recommendation")}
+</Button>
         </Form>
       </Card>
 
